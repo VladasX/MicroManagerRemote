@@ -1,5 +1,7 @@
 from flask import Flask, redirect, url_for, render_template
 import MMCorePy
+from PIL import Image
+import sys, traceback
 
 app = Flask(__name__)
 
@@ -18,8 +20,11 @@ def hello():
 def snap_image():
     try:
         mmc.snapImage()
+        img = mmc.getImage()
+        Image.fromarray(img).save('temp/image.tiff')
         success = True
-    except:
-            success = False
+    except : 
+        traceback.print_exc()
+        success = False
     return render_template('snap_image.html',
     success=success, snap_image_url=url_for('snap_image'), index_url=url_for('hello'))
