@@ -1,7 +1,10 @@
+MMDirectory = "C:\Program Files\Micro-Manager-1.4"
+
 from flask import Flask, redirect, url_for, render_template
-import MMCorePy
 from PIL import Image
 import sys, traceback
+sys.path.append(MMDirectory)
+import MMCorePy
 
 app = Flask(__name__)
 
