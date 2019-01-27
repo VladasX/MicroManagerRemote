@@ -8,14 +8,37 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 	<script src="main.js"></script>
 </head>
+<style>
+.content {
+  max-width: 400px;
+  margin: auto;
+}
+.button{
+    height:30px;
+    width: 100px;
+	float: right;
+}
+</style>
 <body>
-{% if success %}
-Image has been snapped!
-{% else %}
-Something went wrong.
-{%endif %}
-
-<a href="{{ snap_image_url }}">Snap another image</a>
-<a href="{{ index_url }}">Back to home</a>
+<div class="content">
+<br>
+	<h1><b>Micro Manager</b></h1>
+	<br>
+	<br>
+	<img style="float:left" src="{{ image_url }}" ></iframe>
+	<button onclick="location.href = '{{ snap_image_url }}';" id="Button" class="button" >Snap image</button>
+	<br><br><br>
+	<div style="float:right;text-allign:left">
+		{% if success %}
+		Image has been <br>snapped!
+		{% else %}
+		Something went wrong.
+		{%endif %}
+		<br>
+		<a href="{{ snap_image_url }}">Snap another image</a>
+		<br>
+		<a href="{{ index_url }}">Back to home</a>
+	</div>
+</div>	
 </body>
 </html>

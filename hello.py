@@ -55,11 +55,12 @@ def snap_image():
         global unique_id
         mmc.snapImage()
         img = mmc.getImage()
-        Image.fromarray(img).save("temp/image" + str(unique_id) + ".tiff")
+        image_url = "static/img" + str(unique_id) + ".tiff"
+        Image.fromarray(img).save(image_url)
         unique_id += 1
         success = True
     except : 
         traceback.print_exc()
         success = False
     return render_template('snap_image.html',
-    success=success, snap_image_url=url_for('snap_image'), index_url=url_for('hello'))
+    success=success, image_url=image_url, snap_image_url=url_for('snap_image'), index_url=url_for('hello'))

@@ -8,11 +8,25 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 	<script src="main.js"></script>
 </head>
+<style>
+.content {
+  max-width: 400px;
+  margin: auto;
+}
+.button{
+    height:30px;
+    width:100px;
+	float: right;
+}
+</style>
 <body>
-	Micro Manager Home
-	<a href="{{ snap_image_url }}">
-		Snap an image
-	</a>
+<div class="content">
+<br>
+	<h1><b>Micro Manager</b></h1>
+	<br>
+	<br>
+	<button onclick="location.href = '{{ snap_image_url }}';" id="Button" class="button" >Snap image</button>
 	
+</div>	
 </body>
 </html>
